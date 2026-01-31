@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Band Hero (3D Avatars)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🎵 Band Hero</div>
+    <div class="pill">User: <span id="userName">Guest</span></div>
+    <button id="btnCustomize" class="btn">Customize Avatar</button>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Avatar Preview (3D)</h2>
+      <p class="muted">This uses Three.js to render low‑poly CC0 models (Kenney/Quaternius) into a transparent canvas.</p>
+
+      <div class="previewRow">
+        <div class="previewBox">
+          <canvas id="avatarCanvas" width="256" height="256"></canvas>
+          <div class="caption">UI Avatar (256×256)</div>
+        </div>
+        <div class="previewBox large">
+          <canvas id="avatarCanvasHero" width="420" height="420"></canvas>
+          <div class="caption">Hero Avatar (420×420)</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="lbl">Character Type</label>
+        <select id="charType">
+          <option value="human">Human</option>
+          <option value="animal">Animal</option>
+        </select>
+
+        <label class="lbl">Species (animals)</label>
+        <select id="species">
+          <option value="dog">dog</option>
+          <option value="cat">cat</option>
+          <option value="bear">bear</option>
+          <option value="bunny">bunny</option>
+          <option value="bird">bird</option>
+          <option value="fox">fox</option>
+        </select>
+
+        <label class="lbl">Variant</label>
+        <select id="variant">
+          <option value="v1">v1</option>
+          <option value="v2">v2</option>
+          <option value="v3">v3</option>
+        </select>
+
+        <button id="btnRandom" class="btn primary">Randomize</button>
+        <button id="btnExport" class="btn">Export PNG</button>
+      </div>
+
+      <details class="help">
+        <summary>How to add models (required)</summary>
+        <ol>
+          <li>Create a folder <code>public/assets/models/</code>.</li>
+          <li>Add GLB/GLTF models with these names:
+            <ul>
+              <li><code>human/v1.glb</code>, <code>human/v2.glb</code>...</li>
+              <li><code>animal/dog/v1.glb</code>, <code>animal/cat/v1.glb</code>...</li>
+            </ul>
+          </li>
+          <li>Use CC0 sources like Kenney and Quaternius (links in README).</li>
+          <li>Refresh — the preview should populate immediately.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Status</h2>
+      <pre id="status" class="status">Loading…</pre>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
